@@ -43,6 +43,7 @@ class ImageProcessor {
                 String imageKey;
                 try {
                     imageKey = SqsMessage.deserialize(message.getBody()).imageKey;
+                    System.out.println("Image name: " + getNameFromKey(imageKey))
                 } catch (RuntimeException e) {
                     Main.logger().debug("Could not parse: " + message.getBody());
                     continue;
